@@ -56,6 +56,7 @@ public class EmpDaoImpl4 implements EmpDao {
 	@Override
 	public void insertOne(EmpVo bean) throws SQLException {
 		
+		// syncronize와 유사하다고 보면됨
 		TransactionStatus status = null;
 		TransactionDefinition definition = new DefaultTransactionDefinition();
 		status = transactionManager.getTransaction(definition);
