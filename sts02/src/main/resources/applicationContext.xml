@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+<!-- 	<bean id="bean" class="com.bit.emp.model.EmpVo">
+		<property name="empno" value="1111"></property>
+		<property name="ename" value="test"></property>
+		<property name="hiredate">
+			<bean class="java.sql.Date">
+				<constructor-arg value="1654129579664"></constructor-arg>
+			</bean>
+		</property>
+	</bean> 
+
+	<bean id="bean" class="com.bit.emp.model.EmpVo">
+		<constructor-arg value="2222"></constructor-arg>
+		<constructor-arg value="user02"></constructor-arg>
+	</bean>
+
+	<bean id="now" class="java.sql.Date">
+		<constructor-arg value="1654129579664"></constructor-arg>
+	</bean>
+
+	<bean id="bean" class="com.bit.emp.model.EmpVo">
+		<constructor-arg value="3333"></constructor-arg>
+		<constructor-arg value="1000"></constructor-arg>
+		<constructor-arg value="user03"></constructor-arg>
+		<constructor-arg value="tester"></constructor-arg>
+		<constructor-arg ref="now"></constructor-arg>
+	</bean>
+	
+	-->
+	
+	<!-- <bean id="item1" class="java.lang.String"><constructor-arg value="첫번째 String 객체"></constructor-arg></bean>
+	<bean id="item2" class="java.lang.String"><constructor-arg value="두번째 String 객체"></constructor-arg></bean>
+	<bean id="item3" class="java.lang.String"><constructor-arg value="세번째 String 객체"></constructor-arg></bean> -->
+
+	<bean id="item1" class="java.util.Date"></bean>
+	<bean id="item2" class="java.util.Date"></bean>
+	<bean id="item3" class="java.util.Date"></bean>
+
+	<bean id="bean" class="com.bit.emp.model.EmpVo">
+		<property name="arr1">
+			<list>
+				<value>1111</value>
+				<value>2222</value>
+				<value>3333</value>
+				<value>4444</value>
+				<value>첫번째</value>
+				<value>두번째</value>
+				<value>세번째</value>
+				<value>네번째</value>
+				<ref bean="item1"/>
+				<ref bean="item2"/>
+				<ref bean="item3"/>
+				<bean id="item4" class="java.util.Date"></bean>
+			</list>
+		</property>
+		
+		<property name="arr2">
+			<set>
+				<value>1111</value>
+				<value>2222</value>
+				<value>3333</value>
+				<value>4444</value>
+				<value>첫번째</value>
+				<value>두번째</value>
+				<value>세번째</value>
+				<value>네번째</value>
+				<ref bean="item1"/>
+				<ref bean="item2"/>
+				<ref bean="item3"/>
+				<bean id="item4" class="java.util.Date"></bean>
+			</set>
+		</property>
+		
+		<property name="arr3">
+			<map>
+				<entry key="key1" value="val11"></entry>
+				<entry>
+					<key>
+						<value>key2</value>
+					</key>
+					<value>val2</value>
+				</entry>
+				<entry key="key3">
+					<bean class="java.util.Date"></bean>
+				</entry>
+				<entry key="key4" value-ref="item3"></entry>
+				<entry>
+					<key>
+						<value>key5</value>
+					</key>
+					<ref local="item3"/>
+				</entry>
+				
+			</map>
+		</property>
+		
+		<property name="arr4">
+			<!-- <map>
+				<entry key="key1" value="val11"></entry>
+				<entry>
+					<key>
+						<value>key2</value>
+					</key>
+					<value>val2</value>
+				</entry>
+				<entry key="key3">
+					<bean class="java.util.Date"></bean>
+				</entry>
+				<entry key="key4" value-ref="item3"></entry>
+				<entry>
+					<key>
+						<value>key5</value>
+					</key>
+					<ref local="item3"/>
+				</entry>
+				
+			</map> -->
+			<props>
+				<prop key="key1">val1</prop>
+				<prop key="key2">val2</prop>
+				<prop key="key3">val3</prop>
+			</props>
+		</property>
+		<property name="arr5">
+			<array>
+				<value>첫번째</value>
+				<value>두번째</value>
+				<value>세번째</value>
+				<value>네번째</value>
+			</array>
+		</property>
+		
+		<constructor-arg index="1" value="test"></constructor-arg>
+		<constructor-arg index="0" value="1111"></constructor-arg>
+		
+	</bean>		
+	
+</beans>

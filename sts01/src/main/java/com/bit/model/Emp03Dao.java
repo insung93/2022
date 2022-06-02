@@ -13,6 +13,12 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import com.mysql.cj.jdbc.MysqlDataSource;
 
 public class Emp03Dao extends JdbcDaoSupport implements EmpDao{
+	
+	public Emp03Dao() {
+		System.out.println("new Dao...");
+	}
+	
+	
 @Override
 	public List<EmpVo> selectAll() throws SQLException {
 		

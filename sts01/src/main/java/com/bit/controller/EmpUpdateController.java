@@ -11,7 +11,12 @@ import com.bit.model.EmpDao;
 import com.bit.model.EmpVo;
 
 public class EmpUpdateController implements Controller{
-	EmpDao dao = new Emp03Dao();
+	EmpDao dao;
+	
+	public void setDao(EmpDao dao) {
+		this.dao = dao;
+	}
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");

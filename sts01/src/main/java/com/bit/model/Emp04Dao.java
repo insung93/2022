@@ -9,14 +9,14 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
+import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
 
 public class Emp04Dao implements EmpDao {
 	
 	DataSource dataSource;
 	
 	public Emp04Dao() {
-		MysqlDataSource dataSource = new MysqlDataSource();
+		MysqlConnectionPoolDataSource dataSource = new MysqlConnectionPoolDataSource();
 		dataSource.setUrl("jdbc:mysql://localhost:3306/scott");
 		dataSource.setUser("user01");
 		dataSource.setPassword("1234");
