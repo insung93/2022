@@ -13,16 +13,43 @@
 	<bean id="exceptionAdvice" class="com.bit.frame.aop.ExceptionMethod"></bean>	
 	<bean id="aroundAdvice" class="com.bit.frame.aop.AroundMethod"></bean>	
 	
-	
-	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="service"></property>
-		<property name="interceptorNames">
+<!-- 	<bean id="pointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedNames">
 			<array>
-				<!-- <value>beforeAdvice</value>
-				<value>returnAdvice</value>
-				<value>exceptionAdvice</value> -->
-				<value>aroundAdvice</value>
+				<value>setMsg</value>
+				<value>printSu</value>
 			</array>
 		</property>
 	</bean>
+	
+	<bean id="pointcut2" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+		<property name="patterns">
+			<array>
+				com.mycom.Foo.getBar(). get.*
+				<value>.*print.*</value>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="pointcut"></property>
+		<property name="advice" ref="aroundAdvice"></property>
+	</bean> -->
+	
+	<bean id="pointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref="beforeAdvice"></property>
+		<property name="pattern" value=".*print.*"></property>
+	</bean>
+	
+	<!-- <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="service"></property>
+		<property name="interceptorNames">
+			<array>
+				<value>pointcutAdvisor</value>
+			</array>
+		</property>
+	</bean> -->
+	
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+	
 </beans>

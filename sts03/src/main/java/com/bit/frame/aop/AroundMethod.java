@@ -9,18 +9,18 @@ public class AroundMethod implements MethodInterceptor {
 	
 	@Override
 	public Object invoke(MethodInvocation invocation) throws Throwable {
-		System.out.println("around...before");
+		log.debug("around...before");
 		Object obj = null;
 		try {
 			obj = invocation.proceed();
 			// returning advice 처럼 동작
-			System.out.println("around...after");
+			// System.out.println("around...after");
 		} catch(Exception e) {
 			// Exception advice 처럼 동작
-			System.out.println("around...after");
+			// System.out.println("around...after");
 			
 		}
-		System.out.println("around...after" + obj );
+		log.debug("around...after" + obj );
 		return obj;
 	}
 

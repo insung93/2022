@@ -13,11 +13,11 @@ public class App {
 		context = new ClassPathXmlApplicationContext("/applicationContext.xml");
 		
 		
-		UserService service = (UserService) context.getBean("proxy");
-//		System.out.println(" 123   "+service);
-//		service.setMsg("수정");
+		UserService service = (UserService) context.getBean("service");
 		service.printMsg();
+//		System.out.println(" 123   "+service);
+		service.setMsg("수정");
 //		service.setSu(3);
-//		service.printSu();
+		service.printSu();
 	}
 }
