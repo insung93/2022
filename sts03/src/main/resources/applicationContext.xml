@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="service" class="com.bit.frame.service.UserService">
+		<property name="su" value="1"></property>
+		<property name="msg" value="hello~"></property>
+	</bean>
+	
+	<bean id="beforeAdvice" class="com.bit.frame.aop.BeforeMethod"></bean>
+	<bean id="returnAdvice" class="com.bit.frame.aop.AfterMethod"></bean>
+	<bean id="exceptionAdvice" class="com.bit.frame.aop.ExceptionMethod"></bean>	
+	<bean id="aroundAdvice" class="com.bit.frame.aop.AroundMethod"></bean>	
+	
+	
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="service"></property>
+		<property name="interceptorNames">
+			<array>
+				<!-- <value>beforeAdvice</value>
+				<value>returnAdvice</value>
+				<value>exceptionAdvice</value> -->
+				<value>aroundAdvice</value>
+			</array>
+		</property>
+	</bean>
+</beans>
