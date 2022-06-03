@@ -12,6 +12,9 @@ public class UserService {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+	public int getSu() {
+		return su;
+	}
 	
 	public String printMsg() {
 //		log.debug("printMsg...");
