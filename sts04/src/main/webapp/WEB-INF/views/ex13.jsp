@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>ex01 page</h1>
+	<h1>ex13 page</h1>
 	<p>${msg }</p>
-	<img alt="" src="logo.jpg">
-	<img alt="" src="resources/logo.jpg">
 </body>
 </html>
