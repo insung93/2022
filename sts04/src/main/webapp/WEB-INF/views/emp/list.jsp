@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,15 +30,18 @@
 	<tbody>
 		<c:forEach items="${list }" var="bean">
 		<tr>
-			<td><a href="#">${bean.empno }</a></td>
-			<td><a href="#">${bean.ename }</a></td>
-			<td><a href="#">${bean.hiredate }</a></td>
+			<td><a href="detail?idx=${bean.empno }">${bean.empno }</a></td>
+			<td><a href="detail?idx=${bean.empno }">${bean.ename }</a></td>
+			<td><a href="detail?idx=${bean.empno }"><fmt:formatDate value="${bean.hiredate }" pattern="yy/MM/dd" /></a></td>
 		</tr>
 		</c:forEach>
 	</tbody>
 	
 </table>
-
+<p>
+	<a href="add" class="btn btn-primary btn-block">입력</a>
+</p>
 <%@ include file="../templates/footer.jspf" %>
+</script>
 </body>
 </html>
