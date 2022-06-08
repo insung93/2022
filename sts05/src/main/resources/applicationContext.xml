@@ -2,36 +2,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
 	<bean id="myModule" class="com.bit.sts05.service.MyModuleImpl"></bean>
 	
-	<bean id="userBefore" class="com.bit.sts05.utils.UserBefore"></bean>
 	<bean id="userAfter" class="com.bit.sts05.utils.UserAfter"></bean>
 	<bean id="userAround" class="com.bit.sts05.utils.UserAround"></bean>
 	
-	<aop:config>
-		<!-- <aop:pointcut expression="execution(* func*(..))" id="moduleBefore"/> -->
-		<aop:pointcut expression="execution(* com.bit.sts05.service.MyModule.*(..))" id="module"/>
 		<!-- 
+	<bean id="userBefore" class="com.bit.sts05.utils.UserBefore"></bean>
+	<aop:config>
+		<aop:pointcut expression="execution(* com.bit.sts05.service.MyModule.*(..))" id="module"/>
 		<aop:aspect ref="userBefore">
 			<aop:before method="beforeTargetMethod" pointcut-ref="module"/>
 		</aop:aspect>
 		<aop:aspect ref="userAfter">
 			<aop:after method="afterReturningTargetMethod" pointcut-ref="module"/>
-		</aop:aspect>
-		<aop:aspect ref="userAfter">
 			<aop:after-returning method="afterReturningTargetMethod" pointcut-ref="module" returning="retVal"/>
-		</aop:aspect>
-		<aop:aspect ref="userAfter">
 			<aop:after-throwing method="afterThrowingTargetMethod" pointcut-ref="module" throwing="exception"/>
 		</aop:aspect>
-		-->
-	<aop:aspect ref="userAround">
-		<aop:around method="aroundTargetMethod" pointcut-ref="module" />
-	</aop:aspect>		
+		<aop:aspect ref="userAround">
+			<aop:around method="aroundTargetMethod" pointcut-ref="module" />
+		</aop:aspect>		
 		
 	</aop:config>
+		-->
+		
+	<context:component-scan base-package="com.bit.sts05"></context:component-scan>
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
