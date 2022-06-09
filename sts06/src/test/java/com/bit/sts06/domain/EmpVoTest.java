@@ -19,9 +19,11 @@ public class EmpVoTest {
 	@Test
 	public void test() {
 		EmpVo bean = new EmpVo();
+		EmpVo bean2 = new EmpVo();
 		bean.setEmpno(1111);
-		bean.setEname("test");
+		bean2.setEmpno(1111);
 		System.out.println(bean);
+		System.out.println(bean.equals(bean2));
 	}
 
 }
