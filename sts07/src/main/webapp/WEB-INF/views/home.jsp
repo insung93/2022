@@ -19,6 +19,7 @@
 	    	<li><a href="#main">HOME</a></li>
 	    	<li><a href="#emp">EMP</a></li>
 	    	<li><a href="#addemp">ADD EMP</a></li>
+	    	<li><a href="dept/">DEPT</a></li>
 	    	<li><a href="#login">LOGIN</a></li>
 	    </ul>
 	  </div>
@@ -83,6 +84,8 @@
 						e.preventDefault();
 						$.ajax('api/emp/' + idx, {
 							method:'PUT',
+							contentType:'application/json; charset=UTF-8',
+							//contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8')
 							data: JSON.stringify({
 													empno:Number(form.empno.value),
 													ename:form.ename.value,
@@ -91,7 +94,7 @@
 							}),
 							success: function(data) {
 								showList();
-								$('#myModal').hide();
+								$('#myModal').modal('hide');
 							} 
 						})
 					})
