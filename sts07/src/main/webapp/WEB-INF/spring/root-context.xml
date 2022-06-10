@@ -8,7 +8,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<bean 
+<!-- 	<bean 
 		id="propertyPlaceholderConfigurer" 
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
 		p:location="classpath:/userInfo.properties"
@@ -24,7 +24,7 @@
 		p:minIdle="1"
 		p:maxIdle="5"
 		p:maxActive="3"
-		/>
+		/> -->
 	
 	<bean 
 		id="jdbcTemplate" 
@@ -32,5 +32,5 @@
 		p:dataSource-ref="dataSource"
 		/>
 	
-	<context:component-scan base-package="com.bit.sts07.domain"></context:component-scan>
+	<!-- <context:component-scan base-package="com.bit.sts07.domain"></context:component-scan> -->
 </beans>
