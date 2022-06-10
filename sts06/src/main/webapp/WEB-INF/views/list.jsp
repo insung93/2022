@@ -91,7 +91,7 @@
 							}),
 							success: function(data) {
 								showList();
-								$('#myModal').hide();
+								$('#myModal').modal('hide');
 							} 
 						})
 					})
