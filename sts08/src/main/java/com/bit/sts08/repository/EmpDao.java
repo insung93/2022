@@ -19,5 +19,7 @@ public interface EmpDao {
 	int totalSize();
 
 	List<Emp> findMany(String val);
-	
+
+	int login(Emp emp);
+
 }

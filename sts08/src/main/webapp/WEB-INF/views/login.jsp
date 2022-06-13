@@ -1,4 +1,3 @@
-<% System.out.println("view..."); %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,33 +17,25 @@
   </div>
   <p class="navbar-text">
   	<a href="../">HOME</a>
-  	<a href="./">EMP</a>
-  	<a href="./add">EMP_ADD</a>
-  	<c:if test="${sessionScope.result eq true }">
-  	<a href="../logout/">LOGOUT</a>
-  	</c:if>
-  	<c:if test="${sessionScope.result eq null }">
+  	<a href="../emp/">EMP</a>
+  	<a href="../emp/add">EMP_ADD</a>
   	<a href="../login/">LOGIN</a>
-  	</c:if>
   </p>
-  <c:if test="${sessionScope.result }">
-  <p class="navbar-text">${sessionScope.user }님 로그인 중...</p>
-  </c:if>
 </nav>
 <div class="container">
-
-	<c:forEach items="${list }" var="bean">
-		<div class="card text-bg-primary mb-3">
-			<div class="card-header">
-		  		<p>${bean.empno }</p>
-	  		</div>		  
-	  		<div class="card-body">
-		    	<h5 class="card-title">${bean.ename }</h5>
-		    	<p class="card-text">${bean.hiredate }</p>
-		    	<a href="${bean.empno }" class="btn btn-primary">Go Detail</a>
-			</div>
-		</div>
-	</c:forEach>
+	<form action="./" method="post">
+	  <div class="mb-3">
+	    <label for="empno" class="form-label">empno</label>
+	    <input type="text" class="form-control" id="empno" name="empno" placeholder="empno" value="${bean.empno }">
+	  </div>
+	  <div class="mb-3">
+	    <label for="ename" class="form-label">ename</label>
+	    <input type="text" class="form-control" id="ename" name="ename" placeholder="ename" value="${bean.ename }">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Login</button>
+	  <button type="reset" class="btn btn-default">Reset</button>
+	  <button type="button" class="btn btn-default" onclick="history.back();">Back</button>
+	</form>
 </div>
 </body>
 </html>

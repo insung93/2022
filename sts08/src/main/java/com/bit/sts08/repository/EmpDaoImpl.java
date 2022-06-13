@@ -10,10 +10,14 @@ import com.bit.sts08.domain.Emp;
 
 @Repository
 public class EmpDaoImpl implements EmpDao {
-	
+
 	@Autowired
 	SqlSession sqlSession;
-	
+
+	public EmpDaoImpl() {
+		System.out.println("empDaoImpl ...");
+	}
+
 	@Override
 	public List<Emp> findAll() {
 		return sqlSession.selectList("emp.findAll");
@@ -47,6 +51,11 @@ public class EmpDaoImpl implements EmpDao {
 	@Override
 	public List<Emp> findMany(String val) {
 		return sqlSession.selectList("emp.findMany");
+	}
+	
+	@Override
+	public int login(Emp emp) {
+		return sqlSession.selectOne("emp.login", emp);
 	}
 
 }
