@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>Download page</h1>
-	<div><a href="resources/upload/${filename }">[down]</a></div>
+	<div><a href="down?file=${filename }&origin=${origin }">[${origin }]</a></div>
 </body>
 </html>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,20 +37,26 @@ public class HomeController {
 
 		return "down";
 	}
-	
-	//<a href="down?file=${filename }"
-	@RequestMapping(value = "/down", method = RequestMethod.GET)
-	public void down1(HttpServletResponse res, @RequestParam("file") String filename) {
-		File file = new File(upPath + filename);
-		try (OutputStream os = res.getOutputStream(); InputStream is = new FileInputStream(file);) {
-			while (true) {
-				int su = is.read();
-				if (su == -1)
-					break;
+
+	// <a href="down/filename"
+	@RequestMapping(value = "/down/{filename:.+}", method = RequestMethod.GET)
+	public void down1(HttpServletResponse res, @PathVariable String filename) {
+		res.setContentType("application/octet-stream");
+//		Content-Disposition: attachment
+		res.setHeader("Content-Disposition", "attachment; filename=\"" + filename.substring(filename.indexOf('_')+1) + "\"");
+		try (
+				InputStream is = new FileInputStream(upPath + filename);
+				OutputStream os = res.getOutputStream();
+				) {
+			int su = -1;
+			while((su=is.read())!=-1) {
 				os.write(su);
 			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 }

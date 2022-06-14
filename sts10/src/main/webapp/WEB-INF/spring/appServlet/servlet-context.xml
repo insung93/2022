@@ -28,12 +28,11 @@
 	1KB		- 1*1024
 	1MB		- 1*1024*1024
 	10MB	- 10*1024*1024
-	
-	
 	 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		 <beans:property name="defaultEncoding" value="utf8" />
-		 <beans:property name="maxUploadSize" value="10485760"></beans:property>
+		 <beans:property name="maxUploadSize" value="10485760" />	<!-- 10MB -->
+		 <beans:property name="uploadTempDir" value="."></beans:property>
 	</beans:bean>
 	
 </beans:beans>
